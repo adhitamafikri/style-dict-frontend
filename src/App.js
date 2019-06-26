@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import logo from './logo.svg'
+import { BrowserRouter, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './redux/store'
+
+import routeStack from './routes'
+import NavigationBar from './components/common/NavigationBar'
+
+const renderRoutes = () => {
+  return routeStack.map((route, key) => {
+    return (
+      <Route
+        path={route.path}
+        exact={route.exact}
+        component={route.component}
+        key={key}/>
+    )
+  })
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className='App'>
+          {renderRoutes()}
+          <NavigationBar />
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
-export default App;
+export default App

@@ -1,0 +1,25 @@
+.create-dict-form {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+
+  &__row {
+    display: flex;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    padding: 8px 16px;
+  }
+
+  &__footer {
+    padding: 8px 16px;
+  }
+
+  .input-column {
+    display: flex;
+    justify-content: space-between;
+  }
+}

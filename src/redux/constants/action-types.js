@@ -1,0 +1,1 @@
+export const POST_STYLE_DICT = 'POST STYLE DICT'
